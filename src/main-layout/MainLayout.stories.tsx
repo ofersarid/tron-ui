@@ -1,9 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react';
-// import { fn } from '@storybook/test';
-import { MainLayout } from '.';
+import { MainLayout } from '@/main-layout';
 
 const meta = {
-  title: 'App/MainLayout',
+  title: 'app/MainLayout',
   component: MainLayout,
   parameters: {
     layout: 'centered',
@@ -19,3 +18,6 @@ export const Playground: StoryObj<typeof MainLayout> = {
 
 Playground.args = {};
 Playground.argTypes = {};
+
+//"no-use-before-define": "off",
+//"@typescript-eslint/no-use-before-define": "off"
