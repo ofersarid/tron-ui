@@ -1,2 +1,3 @@
-export * from './Typography/Typography';
-export * from './FlexBox/FlexBox';
+export * from './Typography';
+export * from './FlexBox';
+export * from './ImageWithDarkDetection';

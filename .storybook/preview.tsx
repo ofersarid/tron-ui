@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import type { Preview } from '@storybook/react';
 import { ThemeProvider } from '@mui/material/styles';
-import { theme } from '../src/theme';
+import { themeDark } from '../src/theme';
 
 const preview: Preview = {
   parameters: {
@@ -17,8 +17,15 @@ const preview: Preview = {
     (Story, { parameters }) => {
       // 👇 Make it configurable by reading from parameters
       const { pageLayout } = parameters;
+
+      useEffect(() => {
+        document.body.style.backgroundColor =
+          themeDark.palette.background.default;
+        document.body.style.color = themeDark.palette.text.primary;
+      }, []);
+
       return (
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={themeDark}>
           <Story />
         </ThemeProvider>
       );

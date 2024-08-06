@@ -2,8 +2,8 @@ import styled from 'styled-components';
 
 export interface BoxProps {
   readonly children: React.ReactNode;
-  readonly direction: 'row' | 'col';
-  readonly align: 'center' | 'flex-start' | 'flex-end';
+  readonly direction?: 'row' | 'col';
+  readonly align?: 'center' | 'flex-start' | 'flex-end';
 }
 
 export function FlexBox({

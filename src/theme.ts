@@ -1,6 +1,14 @@
 import { createTheme } from '@mui/material/styles';
 
-export const theme = createTheme({
+const theme = {
+  palette: {
+    background: {
+      default: '#FFFFFF',
+    },
+    text: {
+      primary: '#000000',
+    },
+  },
   typography: {
     h1: {
       fontFamily: '"Nasalization", sans-serif',
@@ -17,4 +25,18 @@ export const theme = createTheme({
       fontWeight: 400,
     },
   },
-});
+};
+
+const darkMode = {
+  palette: {
+    background: {
+      default: '#222222',
+    },
+    text: {
+      primary: '#ffffff',
+    },
+  },
+};
+
+export const themeDark = createTheme(Object.assign(theme, darkMode));
+export const themeLight = createTheme(Object.assign(theme));

@@ -20,20 +20,21 @@ Playground.args = {
   children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   variant: 'body1',
 };
+
 Playground.argTypes = {
   variant: {
     control: 'select',
     options: [
       'h1',
       'h2',
-      'h3',
-      'h4',
-      'h5',
-      'h6',
+      // 'h3',
+      // 'h4',
+      // 'h5',
+      // 'h6',
       'subtitle1',
-      'subtitle2',
+      // 'subtitle2',
       'body1',
-      'body2',
+      // 'body2',
       'caption',
     ],
   },
