@@ -10,7 +10,6 @@ interface ImageWithDarkDetectionProps {
   readonly isDarkMode?: boolean;
   readonly darkModePadding?: string;
   readonly darkModeContrast?: string;
-  readonly boostMidRange?: boolean;
 }
 
 export const ImageWithDarkDetection: React.FC<ImageWithDarkDetectionProps> = ({
@@ -20,31 +19,20 @@ export const ImageWithDarkDetection: React.FC<ImageWithDarkDetectionProps> = ({
   style,
   isDarkMode = false,
   darkModePadding = '0.5rem',
-  boostMidRange = true,
   darkModeContrast = '#FFFFFF',
 }: ImageWithDarkDetectionProps) => {
-  const [filter, setFilter] = useState('none');
   const [isDarkModality, setIsDarkModality] = useState(false);
 
   useLayoutEffect(() => {
     if (isDarkMode) {
       getImageBrightness(src, (brightness: number) => {
         const darkThreshold = 16;
-        const invertThreshold = 128;
-
-        if (brightness < darkThreshold) {
-          setIsDarkModality(true);
-        } else if (brightness < invertThreshold && boostMidRange) {
-          setFilter('contrast(1.3) brightness(1.3)');
-          setIsDarkModality(false);
-        } else {
-          setFilter('none');
-        }
+        setIsDarkModality(brightness < darkThreshold);
       });
     } else {
       setIsDarkModality(false);
     }
-  }, [src, isDarkMode, boostMidRange]);
+  }, [src, isDarkMode]);
 
   return (
     <SImage
@@ -54,12 +42,7 @@ export const ImageWithDarkDetection: React.FC<ImageWithDarkDetectionProps> = ({
       onError={onError}
       $padding={darkModePadding}
       $darkModeContrast={darkModeContrast}
-      style={{
-        filter: filter,
-        width: 'inherit',
-        height: 'inherit',
-        ...style,
-      }}
+      style={style}
     />
   );
 };
@@ -75,4 +58,6 @@ const SImage = styled.img<{
     $isDarkModeImage ? $padding : 'unset'};
   border-radius: ${({ $isDarkModeImage }) =>
     $isDarkModeImage ? '2px' : 'unset'};
+  width: inherit;
+  height: inherit;
 `;

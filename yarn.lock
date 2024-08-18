@@ -2311,10 +2311,20 @@
     recast "^0.23.5"
     tiny-invariant "^1.3.1"
 
+"@storybook/components@^8.0.0":
+  version "8.2.7"
+  resolved "https://registry.yarnpkg.com/@storybook/components/-/components-8.2.7.tgz#e8ae8c8f7733931dfb8c2e8628b3c1e339861e8d"
+  integrity sha512-FXhnoHl9S+tKSFc62iUG3EWplQP9ojGQaSMhqP4QTus6xmo53oSsPzuTPQilKVHkGxFQW8eGgKKsfHw3G2NT2g==
+
 "@storybook/components@^8.2.4":
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/@storybook/components/-/components-8.2.4.tgz#3185c3d5c68700daaad4b8cb3078a2eb0a9e3047"
   integrity sha512-JLT1RoR/RXX+ZTeFoY85CRHb9Zz3l0PRRUSetEjoIJdnBGeL5C38bs0s9QnYjpCDLUlhdYhTln+GzmbyH8ocpA==
+
+"@storybook/core-events@^8.0.0":
+  version "8.2.7"
+  resolved "https://registry.yarnpkg.com/@storybook/core-events/-/core-events-8.2.7.tgz#cbd6394cea22ee626a36d47ef42fc51abde7ba6f"
+  integrity sha512-w4Gz7ExwCFrr/Z6JTTLj/jLDsiapqq71lGcCTE7fZp4blN/FovB/oOehljAkjyCOCL8Rx3kiSeWIicO+M8o1Fw==
 
 "@storybook/core-webpack@8.2.4":
   version "8.2.4"
@@ -2380,6 +2390,11 @@
     "@storybook/global" "^5.0.0"
     "@vitest/utils" "^1.3.1"
     util "^0.12.4"
+
+"@storybook/manager-api@^8.0.0":
+  version "8.2.7"
+  resolved "https://registry.yarnpkg.com/@storybook/manager-api/-/manager-api-8.2.7.tgz#15d83e554f6f65cd7ce67de1277f1ce510d43907"
+  integrity sha512-BXjz6eNl1GyFcMwzRQTIokslcIY71AYblJUscPcy03X93oqI0GjFVa1xuSMwYw/oXWn7SHhKmqtqEG19lvBGRQ==
 
 "@storybook/manager-api@^8.2.4":
   version "8.2.4"
@@ -2489,6 +2504,11 @@
     "@vitest/expect" "1.6.0"
     "@vitest/spy" "1.6.0"
     util "^0.12.4"
+
+"@storybook/theming@^8.0.0":
+  version "8.2.7"
+  resolved "https://registry.yarnpkg.com/@storybook/theming/-/theming-8.2.7.tgz#0df573d16e743d7903eca8535ca424bcc1d99e57"
+  integrity sha512-+iqm0GfRkshrjjNSOzwl7AD2m+LtJGXJCr93ke1huDK497WUKbX1hbbw51h5E1tEkx0c2wIqUlaqCM+7XMYcpw==
 
 "@storybook/theming@^8.2.4":
   version "8.2.4"
@@ -10988,6 +11008,20 @@ stop-iteration-iterator@^1.0.0:
   integrity sha512-iCGQj+0l0HOdZ2AEeBADlsRC+vsnDsZsbdSiH1yNSjcfKM7fdpCMfqAL/dwF5BLiw/XhRft/Wax6zQbhq2BcjQ==
   dependencies:
     internal-slot "^1.0.4"
+
+storybook-dark-mode@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/storybook-dark-mode/-/storybook-dark-mode-4.0.2.tgz#2536d1a229ac050172d37aa50bd9f6f7cdad0425"
+  integrity sha512-zjcwwQ01R5t1VsakA6alc2JDIRVtavryW8J3E3eKLDIlAMcvsgtpxlelWkZs2cuNspk6Z10XzhQVrUWtYc3F0w==
+  dependencies:
+    "@storybook/components" "^8.0.0"
+    "@storybook/core-events" "^8.0.0"
+    "@storybook/global" "^5.0.0"
+    "@storybook/icons" "^1.2.5"
+    "@storybook/manager-api" "^8.0.0"
+    "@storybook/theming" "^8.0.0"
+    fast-deep-equal "^3.1.3"
+    memoizerific "^1.11.3"
 
 storybook@^8.2.4:
   version "8.2.4"

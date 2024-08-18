@@ -1,7 +1,8 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, ThemeOptions } from '@mui/material/styles';
 
-const theme = {
+const theme: ThemeOptions = {
   palette: {
+    mode: 'light',
     background: {
       default: '#FFFFFF',
     },
@@ -10,6 +11,9 @@ const theme = {
     },
   },
   typography: {
+    allVariants: {
+      color: '#000000',
+    },
     h1: {
       fontFamily: '"Nasalization", sans-serif',
       fontSize: '2rem',
@@ -26,17 +30,18 @@ const theme = {
     },
   },
 };
-
-const darkMode = {
-  palette: {
-    background: {
-      default: '#222222',
-    },
-    text: {
-      primary: '#ffffff',
-    },
+const dark: ThemeOptions = { ...theme };
+dark.palette = {
+  mode: 'dark',
+  background: {
+    default: '#222222',
+  },
+  text: {
+    primary: '#ffffff',
   },
 };
 
-export const themeDark = createTheme(Object.assign(theme, darkMode));
+dark.typography = { ...theme.typography, allVariants: { color: '#ffffff' } };
+
 export const themeLight = createTheme(Object.assign(theme));
+export const themeDark = createTheme(Object.assign(dark));
