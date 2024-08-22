@@ -1,4 +1,4 @@
-import { createTheme, ThemeOptions } from '@mui/material/styles';
+import { alpha, createTheme, ThemeOptions } from '@mui/material/styles';
 
 const theme: ThemeOptions = {
   palette: {
@@ -11,9 +11,7 @@ const theme: ThemeOptions = {
     },
   },
   typography: {
-    allVariants: {
-      color: '#000000',
-    },
+    allVariants: {},
     h1: {
       fontFamily: '"Nasalization", sans-serif',
       fontSize: '2rem',
@@ -35,6 +33,24 @@ const theme: ThemeOptions = {
       fontSize: '0.7rem',
       fontWeight: 400,
       letterSpacing: '0.05rem',
+    },
+  },
+  components: {
+    MuiTooltip: {
+      styleOverrides: {
+        tooltip: ({ theme }) => ({
+          backgroundColor: theme.palette.text.primary,
+          color: theme.palette.background.default,
+          border: alpha(theme.palette.text.primary, 0.5),
+        }),
+        arrow: ({ theme }) => ({
+          '&:before': {
+            backgroundColor: theme.palette.text.primary,
+            border: alpha(theme.palette.text.primary, 0.5),
+          },
+          // color: theme.palette.background.default,
+        }),
+      },
     },
   },
 };
