@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import type { Preview } from '@storybook/react';
-import { ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { addons } from '@storybook/preview-api';
 import { themeDark, themeLight } from '../src/theme';
 import { themes } from '@storybook/theming';
@@ -40,9 +40,11 @@ const preview: Preview = {
       }, [isDarkMode]);
 
       return (
-        <ThemeProvider theme={isDarkMode ? themeDark : themeLight}>
-          <Story />
-        </ThemeProvider>
+        <StyledEngineProvider injectFirst>
+          <ThemeProvider theme={isDarkMode ? themeDark : themeLight}>
+            <Story />
+          </ThemeProvider>
+        </StyledEngineProvider>
       );
     },
   ],

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { ImageWithDarkDetection, FlexBox } from '@/atoms';
+import { ImageWithDarkDetection, Row } from '@/atoms';
 
 const meta = {
   title: 'atoms/ImageWithDarkDetection',
@@ -14,23 +14,21 @@ export default meta;
 
 export const Playground: StoryObj<typeof ImageWithDarkDetection> = {
   render: (args) => (
-    <FlexBox>
-      <FlexBox direction="row">
-        <ImageWithDarkDetection {...args} />
-        <ImageWithDarkDetection
-          {...args}
-          src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/306_Slack_logo-512.png"
-        />
-        <ImageWithDarkDetection
-          {...args}
-          src="https://www.pngall.com/wp-content/uploads/5/Oracle-Logo-Transparent-Images.png"
-        />
-        <ImageWithDarkDetection
-          {...args}
-          src="https://companieslogo.com/img/orig/CYBR-8c16a7ec.png"
-        />
-      </FlexBox>
-    </FlexBox>
+    <Row>
+      <ImageWithDarkDetection {...args} />
+      <ImageWithDarkDetection
+        {...args}
+        src="https://cdn4.iconfinder.com/data/icons/logos-and-brands/512/306_Slack_logo-512.png"
+      />
+      <ImageWithDarkDetection
+        {...args}
+        src="https://www.pngall.com/wp-content/uploads/5/Oracle-Logo-Transparent-Images.png"
+      />
+      <ImageWithDarkDetection
+        {...args}
+        src="https://companieslogo.com/img/orig/CYBR-8c16a7ec.png"
+      />
+    </Row>
   ),
 };
 

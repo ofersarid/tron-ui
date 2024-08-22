@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Typography, FlexBox } from '@/atoms';
+import { Typography, Col } from '@/atoms';
+import Tooltip from '@mui/material/Tooltip';
 
 const meta = {
   title: 'atoms/Typography',
@@ -24,19 +25,7 @@ Playground.args = {
 Playground.argTypes = {
   variant: {
     control: 'select',
-    options: [
-      'h1',
-      'h2',
-      // 'h3',
-      // 'h4',
-      // 'h5',
-      // 'h6',
-      'subtitle1',
-      // 'subtitle2',
-      'body1',
-      // 'body2',
-      'caption',
-    ],
+    options: ['h1', 'h2', 'subtitle1', 'body1', 'caption'],
   },
   className: {
     control: false,
@@ -45,19 +34,15 @@ Playground.argTypes = {
 
 export const ShowCase: StoryObj<typeof Typography> = {
   render: (args) => (
-    <FlexBox direction="col" align="center">
-      <Typography variant="h1">H1: {args.children}</Typography>
+    <Col align="center">
+      <Tooltip title="hi there">
+        <Typography variant="h1">H1: {args.children}</Typography>
+      </Tooltip>
       <Typography variant="h2">H2: {args.children}</Typography>
-      {/* <Typography variant="h3">H3: {args.children}</Typography>
-      <Typography variant="h4">H4: {args.children}</Typography>
-      <Typography variant="h5">H5: {args.children}</Typography>
-      <Typography variant="h6">H6: {args.children}</Typography> */}
       <Typography variant="subtitle1">Subtitle-1: {args.children}</Typography>
-      {/* <Typography variant="subtitle2">Subtitle-2: {args.children}</Typography> */}
       <Typography variant="body1">Body-1: {args.children}</Typography>
-      {/* <Typography variant="body2">Body-2: {args.children}</Typography> */}
       <Typography variant="caption">caption: {args.children}</Typography>
-    </FlexBox>
+    </Col>
   ),
 };
 

@@ -23,10 +23,18 @@ const theme: ThemeOptions = {
       fontSize: '1.5rem',
     },
     subtitle1: {
+      fontFamily: '"Orbitron", sans-serif',
       fontSize: '1.3rem',
     },
     body1: {
+      fontFamily: '"Orbitron", sans-serif',
+      letterSpacing: '0.05rem',
       fontWeight: 400,
+    },
+    caption: {
+      fontSize: '0.7rem',
+      fontWeight: 400,
+      letterSpacing: '0.05rem',
     },
   },
 };

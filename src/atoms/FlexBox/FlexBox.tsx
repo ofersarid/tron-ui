@@ -2,17 +2,20 @@ import styled from 'styled-components';
 
 export interface BoxProps {
   readonly children: React.ReactNode;
-  readonly direction?: 'row' | 'col';
   readonly align?: 'center' | 'flex-start' | 'flex-end';
 }
 
-export function FlexBox({
-  children,
-  direction = 'col',
-  align = 'center',
-}: BoxProps): JSX.Element {
+export function Row({ children, align = 'center' }: BoxProps): JSX.Element {
   return (
-    <SBox $direction={direction} $align={align}>
+    <SBox $direction="row" $align={align}>
+      {children}
+    </SBox>
+  );
+}
+
+export function Col({ children, align = 'center' }: BoxProps): JSX.Element {
+  return (
+    <SBox $direction="column" $align={align}>
       {children}
     </SBox>
   );
@@ -20,12 +23,11 @@ export function FlexBox({
 
 /* --- Styled Components --- */
 const SBox = styled.div<{
-  readonly $direction: BoxProps['direction'];
+  readonly $direction: 'row' | 'column';
   readonly $align: BoxProps['align'];
 }>`
   display: flex;
-  flex-direction: ${({ $direction }) =>
-    $direction === 'row' ? 'row' : 'column'};
+  flex-direction: ${({ $direction }) => $direction};
   gap: 1rem;
   align-items: ${({ $align }) => $align};
 `;
