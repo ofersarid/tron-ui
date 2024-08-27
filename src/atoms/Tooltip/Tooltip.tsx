@@ -22,7 +22,6 @@ export const Tooltip = ({
     <MuiTooltip
       title={<Typography variant="caption">{content}</Typography>}
       placement={placement}
-      open
       arrow={!followCursor}
       followCursor={followCursor}
       PopperProps={{

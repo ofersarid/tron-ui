@@ -5,6 +5,8 @@ import { addons } from '@storybook/preview-api';
 import { themeDark, themeLight } from '../src/theme';
 import { themes } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
+import '../src/index.css';
+import './index.css';
 
 const channel = addons.getChannel();
 
@@ -33,11 +35,11 @@ const preview: Preview = {
       const { pageLayout } = parameters;
       const isDarkMode = useDarkMode();
 
-      useEffect(() => {
-        const theme = isDarkMode ? themeDark : themeLight;
-        document.body.style.backgroundColor = theme.palette.background.default;
-        // document.body.style.color = theme.palette.text.primary;
-      }, [isDarkMode]);
+      // useEffect(() => {
+      //   const theme = isDarkMode ? themeDark : themeLight;
+      //   document.body.style.backgroundColor = theme.palette.background.default;
+      //   // document.body.style.color = theme.palette.text.primary;
+      // }, [isDarkMode]);
 
       return (
         <StyledEngineProvider injectFirst>

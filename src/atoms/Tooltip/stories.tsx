@@ -1,35 +1,33 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Tooltip, Typography, Col, Row } from '@/atoms';
+import { Tooltip, Typography, Col, Row, PageWrapper } from '@/atoms';
 
 const meta = {
   title: 'atoms/Tooltip',
   component: Tooltip,
   tags: ['autodocs'],
-  parameters: {
-    layout: 'centered',
-  },
 } as Meta;
 
 export default meta;
 
 export const ShowCase: StoryObj<typeof Tooltip> = {
   render: (args) => (
-    <Row>
-      <Col>
-        <Tooltip content="Hellow There!" placement="bottom">
-          <Typography>Bottom</Typography>
-        </Tooltip>
-        <Tooltip content="Hellow There!" placement="top">
-          <Typography>Top</Typography>
-        </Tooltip>
-        <Tooltip content="Hellow There!" placement="left">
-          <Typography>Left</Typography>
-        </Tooltip>
-        <Tooltip content="Hellow There!" placement="right">
-          <Typography>Right</Typography>
-        </Tooltip>
+    <PageWrapper centerContent>
+      <Row>
+        <Col>
+          <Tooltip content="Hellow There!" placement="bottom">
+            <Typography>Bottom</Typography>
+          </Tooltip>
+          <Tooltip content="Hellow There!" placement="top">
+            <Typography>Top</Typography>
+          </Tooltip>
+          <Tooltip content="Hellow There!" placement="left">
+            <Typography>Left</Typography>
+          </Tooltip>
+          <Tooltip content="Hellow There!" placement="right">
+            <Typography>Right</Typography>
+          </Tooltip>
 
-        {/* <Tooltip
+          {/* <Tooltip
           content={
             <div>
               <Typography>HTML content </Typography>
@@ -38,16 +36,19 @@ export const ShowCase: StoryObj<typeof Tooltip> = {
         >
           <Typography>Hover Me</Typography>
         </Tooltip> */}
-      </Col>
-    </Row>
+        </Col>
+      </Row>
+    </PageWrapper>
   ),
 };
 
 export const Playground: StoryObj<typeof Tooltip> = {
   render: (args) => (
-    <Tooltip {...args}>
-      <Typography>Hover Me</Typography>
-    </Tooltip>
+    <PageWrapper centerContent>
+      <Tooltip {...args}>
+        <Typography>Hover Me</Typography>
+      </Tooltip>
+    </PageWrapper>
   ),
 };
 

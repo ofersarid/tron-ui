@@ -54,18 +54,18 @@ const theme: ThemeOptions = {
     },
   },
 };
-const dark: ThemeOptions = { ...theme };
-dark.palette = {
-  mode: 'dark',
-  background: {
-    default: '#222222',
-  },
-  text: {
-    primary: '#ffffff',
-  },
-};
 
-dark.typography = { ...theme.typography, allVariants: { color: '#ffffff' } };
-
-export const themeLight = createTheme(Object.assign(theme));
-export const themeDark = createTheme(Object.assign(dark));
+export const themeLight = createTheme(theme);
+export const themeDark = createTheme(
+  Object.assign({}, theme, {
+    palette: {
+      mode: 'dark',
+      background: {
+        default: '#222222',
+      },
+      text: {
+        primary: '#ffffff',
+      },
+    },
+  }),
+);
