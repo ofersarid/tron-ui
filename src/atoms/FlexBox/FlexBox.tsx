@@ -42,7 +42,7 @@ export function Row({
 
 export function Col({
   children,
-  align = 'center',
+  align = 'flex-start',
   justify = 'flex-start',
   className = '',
   gap = 'sm',

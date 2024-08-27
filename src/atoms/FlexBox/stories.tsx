@@ -65,7 +65,7 @@ export const Col: StoryObj<FlexProps> = {
 Col.args = {
   gap: 'sm',
   streatch: true,
-  align: 'center',
+  align: 'flex-start',
   justify: 'flex-start',
 };
 
