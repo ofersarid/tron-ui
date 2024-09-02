@@ -1,25 +1,29 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Typography, Col } from '@/atoms';
-import Tooltip from '@mui/material/Tooltip';
+import { Typography, PageWrapper } from '@/atoms';
+import styled from 'styled-components';
 
 const meta = {
   title: 'atoms/Typography',
   component: Typography,
-  parameters: {
-    layout: 'centered',
-  },
   tags: ['autodocs'],
 } as Meta;
 
 export default meta;
 
 export const Playground: StoryObj<typeof Typography> = {
-  render: (args) => <Typography {...args} />,
+  render: (args) => (
+    <PageWrapper centerContent>
+      <StyledText {...args}>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </StyledText>
+    </PageWrapper>
+  ),
 };
 
 Playground.args = {
-  children: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
   variant: 'body1',
+  align: 'inherit',
+  noWrap: false,
 };
 
 Playground.argTypes = {
@@ -30,19 +34,39 @@ Playground.argTypes = {
   className: {
     control: false,
   },
+  children: {
+    control: false,
+  },
+  align: {
+    control: 'select',
+    options: ['inherit', 'left', 'center', 'right', 'justify'],
+  },
 };
 
 export const ShowCase: StoryObj<typeof Typography> = {
   render: (args) => (
-    <Col align="center">
-      <Tooltip title="hi there">
-        <Typography variant="h1">H1: {args.children}</Typography>
-      </Tooltip>
-      <Typography variant="h2">H2: {args.children}</Typography>
-      <Typography variant="subtitle1">Subtitle-1: {args.children}</Typography>
-      <Typography variant="body1">Body-1: {args.children}</Typography>
-      <Typography variant="caption">caption: {args.children}</Typography>
-    </Col>
+    <PageWrapper centerContent>
+      <Typography variant="h1">
+        <StyledTitle>H1:</StyledTitle>
+        {args.children}
+      </Typography>
+      <Typography variant="h2">
+        <StyledTitle>H2: </StyledTitle>
+        {args.children}
+      </Typography>
+      <Typography variant="subtitle1">
+        <StyledTitle>Subtitle-1: </StyledTitle>
+        {args.children}
+      </Typography>
+      <Typography variant="body1">
+        <StyledTitle>Body-1: </StyledTitle>
+        {args.children}
+      </Typography>
+      <Typography variant="caption">
+        <StyledTitle>caption: </StyledTitle>
+        {args.children}
+      </Typography>
+    </PageWrapper>
   ),
 };
 
@@ -57,3 +81,14 @@ ShowCase.argTypes = {
     control: false,
   },
 };
+
+/* --- Styles --- */
+const StyledText = styled(Typography)`
+  width: 20rem;
+`;
+
+const StyledTitle = styled.span`
+  color: ${(props) => props.theme.palette.primary.main};
+  display: inline-block;
+  margin-right: 0.5rem;
+`;

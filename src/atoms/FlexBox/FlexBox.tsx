@@ -11,10 +11,11 @@ enum Gap {
 export interface FlexProps {
   readonly children: React.ReactNode;
   readonly align?: 'center' | 'flex-start' | 'flex-end';
-  readonly justify?: 'center' | 'flex-start' | 'flex-end';
+  readonly justify?: 'center' | 'flex-start' | 'flex-end' | 'space-between';
   readonly className?: string;
   readonly gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
   readonly streatch?: boolean;
+  readonly wrap?: boolean;
 }
 
 export function Row({
@@ -24,9 +25,10 @@ export function Row({
   className = '',
   gap = 'sm',
   streatch = false,
+  wrap = false,
 }: FlexProps): JSX.Element {
   return (
-    <SBox
+    <StyledBox
       className={className}
       $direction="row"
       $align={align}
@@ -34,9 +36,10 @@ export function Row({
       $gap={Gap[gap]}
       $flex={streatch ? 1 : 0}
       $width={streatch ? '100%' : 'auto'}
+      $wrap={wrap ? 'wrap' : 'nowrap'}
     >
       {children}
-    </SBox>
+    </StyledBox>
   );
 }
 
@@ -47,9 +50,10 @@ export function Col({
   className = '',
   gap = 'sm',
   streatch = false,
+  wrap = false,
 }: FlexProps): JSX.Element {
   return (
-    <SBox
+    <StyledBox
       className={className}
       $direction="column"
       $align={align}
@@ -57,27 +61,29 @@ export function Col({
       $gap={Gap[gap]}
       $flex={streatch ? 1 : 0}
       $width={streatch ? '100%' : 'auto'}
+      $wrap={wrap ? 'wrap' : 'nowrap'}
     >
       {children}
-    </SBox>
+    </StyledBox>
   );
 }
 
 /* --- Styled Components --- */
-const SBox = styled.div<{
+const StyledBox = styled.div<{
   readonly $direction: 'row' | 'column';
   readonly $align: FlexProps['align'];
   readonly $justify: FlexProps['justify'];
   readonly $gap: Gap;
   readonly $flex: number;
   readonly $width: string;
+  readonly $wrap: 'wrap' | 'nowrap';
 }>`
   display: flex;
   flex-direction: ${({ $direction }) => $direction};
-  gap: 1rem;
   align-items: ${({ $align }) => $align};
   justify-content: ${({ $justify }) => $justify};
   gap: ${({ $gap }) => $gap};
   flex: ${({ $flex }) => $flex};
   width: ${({ $width }) => $width};
+  flex-wrap: ${({ $wrap }) => $wrap};
 `;

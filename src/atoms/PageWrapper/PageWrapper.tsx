@@ -15,6 +15,7 @@ export function PageWrapper({
       streatch
       children={children}
       justify={centerContent ? 'center' : 'flex-start'}
+      align={centerContent ? 'center' : 'flex-start'}
     />
   );
 }

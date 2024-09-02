@@ -1,13 +1,18 @@
 import { alpha, createTheme, ThemeOptions } from '@mui/material/styles';
+import { darken, lighten } from '@mui/material';
 
 const theme: ThemeOptions = {
   palette: {
     mode: 'light',
     background: {
-      default: '#FFFFFF',
+      default: '#f8f9f4',
     },
     text: {
       primary: '#000000',
+      secondary: lighten('#000000', 0.7),
+    },
+    primary: {
+      main: '#f44336',
     },
   },
   typography: {
@@ -65,6 +70,7 @@ export const themeDark = createTheme(
       },
       text: {
         primary: '#ffffff',
+        secondary: darken('#ffffff', 0.7),
       },
     },
   }),
