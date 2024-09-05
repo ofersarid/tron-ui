@@ -10,6 +10,59 @@ const meta = {
 
 export default meta;
 
+export const Playground: StoryObj<typeof Tooltip> = {
+  render: (args) => (
+    <PageWrapper centerContent>
+      <Tooltip {...args} />
+    </PageWrapper>
+  ),
+};
+
+Playground.args = {
+  children: <Typography>Hover Me</Typography>,
+  content: 'Hello there !',
+  type: 'info',
+  placement: 'bottom',
+  followCursor: false,
+};
+
+Playground.argTypes = {
+  type: {
+    control: 'select',
+    options: ['info', 'error'],
+    description: 'Different styles for info | error.',
+  },
+  placement: {
+    control: 'select',
+    options: [
+      'bottom-end',
+      'bottom-start',
+      'bottom',
+      'left-end',
+      'left-start',
+      'left',
+      'right-end',
+      'right-start',
+      'right',
+      'top-end',
+      'top-start',
+      'top',
+    ],
+    description: 'Tooltip placement..',
+  },
+  children: {
+    control: false,
+    description: 'Tooltip reference element.',
+  },
+  content: {
+    description: 'Content to be displayed in the tooltip.',
+  },
+  followCursor: {
+    description:
+      'If <code>true</code>, the tooltip will follow the cursor over the wrapped element.',
+  },
+};
+
 export const ShowCase: StoryObj<typeof Tooltip> = {
   render: (args) => (
     <PageWrapper centerContent>
@@ -59,50 +112,6 @@ ShowCase.argTypes = {
     control: false,
   },
   followCursor: {
-    control: false,
-  },
-};
-
-export const Playground: StoryObj<typeof Tooltip> = {
-  render: (args) => (
-    <PageWrapper centerContent>
-      <Tooltip {...args}>
-        <Typography>Hover Me</Typography>
-      </Tooltip>
-    </PageWrapper>
-  ),
-};
-
-Playground.args = {
-  content: 'Hello there !',
-  type: 'info',
-  placement: 'bottom',
-  followCursor: false,
-};
-
-Playground.argTypes = {
-  type: {
-    control: 'select',
-    options: ['info', 'error'],
-  },
-  placement: {
-    control: 'select',
-    options: [
-      'bottom-end',
-      'bottom-start',
-      'bottom',
-      'left-end',
-      'left-start',
-      'left',
-      'right-end',
-      'right-start',
-      'right',
-      'top-end',
-      'top-start',
-      'top',
-    ],
-  },
-  children: {
     control: false,
   },
 };

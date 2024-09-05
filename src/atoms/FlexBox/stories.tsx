@@ -31,10 +31,12 @@ export const Row: StoryObj<FlexProps> = {
 };
 
 Row.args = {
+  children: [],
   gap: 'sm',
-  streatch: true,
   align: 'center',
   justify: 'flex-start',
+  flex: 0,
+  width: 'auto',
 };
 
 Row.argTypes = {
@@ -64,7 +66,7 @@ export const Col: StoryObj<FlexProps> = {
 
 Col.args = {
   gap: 'sm',
-  streatch: true,
+  flex: 0,
   align: 'flex-start',
   justify: 'flex-start',
 };

@@ -11,6 +11,11 @@ export interface TooltipProps {
   readonly type?: 'info' | 'error';
 }
 
+/**
+ * This components is a wrapper around the <code>MuiTooltip</code> component.<br/>
+ * It provides a simple way to add a tooltip to any component.<br />
+ * It also provides a way to add a type to the tooltip, which will change the color of the tooltip.<br />
+ */
 export const Tooltip = ({
   placement = 'bottom',
   content = '',

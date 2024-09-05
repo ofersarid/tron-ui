@@ -5,3 +5,14 @@
   align-items: center;
   justify-content: center;
 }
+
+warn {
+  background-color: rgba(173, 104, 0, 0.12);
+  color: rgb(255, 251, 235);
+  border: 1px solid rgba(173, 104, 0, 0.45);
+  padding-inline: 0.5rem;
+  padding-block: 0.2rem;
+  border-radius: 0.1rem;
+  margin-block: 0.3rem;
+  display: inline-block;
+}

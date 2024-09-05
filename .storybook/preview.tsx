@@ -5,6 +5,14 @@ import { addons } from '@storybook/preview-api';
 import { themeDark, themeLight } from '../src/theme';
 import { themes } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
+import {
+  Title,
+  Subtitle,
+  Description,
+  Primary,
+  Controls,
+  Stories,
+} from '@storybook/blocks';
 import '../src/index.css';
 import './index.css';
 
@@ -26,6 +34,17 @@ const preview: Preview = {
     },
     docs: {
       toc: true, // 👈 Enables the table of contents
+      theme: themes.dark,
+      page: () => (
+        <>
+          <Title />
+          <Subtitle />
+          <Description />
+          <Primary />
+          <Controls />
+          <Stories />
+        </>
+      ),
     },
   },
   decorators: [

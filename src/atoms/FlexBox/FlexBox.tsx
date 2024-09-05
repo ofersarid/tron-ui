@@ -14,17 +14,22 @@ export interface FlexProps {
   readonly justify?: 'center' | 'flex-start' | 'flex-end' | 'space-between';
   readonly className?: string;
   readonly gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  readonly streatch?: boolean;
+  readonly flex?: number;
+  readonly width?: string;
   readonly wrap?: boolean;
 }
 
+/**
+ * Flex containers Row and Col
+ */
 export function Row({
   children,
   align = 'center',
   justify = 'flex-start',
   className = '',
   gap = 'sm',
-  streatch = false,
+  flex = 0,
+  width = 'auto',
   wrap = false,
 }: FlexProps): JSX.Element {
   return (
@@ -34,8 +39,8 @@ export function Row({
       $align={align}
       $justify={justify}
       $gap={Gap[gap]}
-      $flex={streatch ? 1 : 0}
-      $width={streatch ? '100%' : 'auto'}
+      $flex={flex}
+      $width={width}
       $wrap={wrap ? 'wrap' : 'nowrap'}
     >
       {children}
@@ -49,7 +54,8 @@ export function Col({
   justify = 'flex-start',
   className = '',
   gap = 'sm',
-  streatch = false,
+  flex = 0,
+  width = 'auto',
   wrap = false,
 }: FlexProps): JSX.Element {
   return (
@@ -59,8 +65,8 @@ export function Col({
       $align={align}
       $justify={justify}
       $gap={Gap[gap]}
-      $flex={streatch ? 1 : 0}
-      $width={streatch ? '100%' : 'auto'}
+      $flex={flex}
+      $width={width}
       $wrap={wrap ? 'wrap' : 'nowrap'}
     >
       {children}

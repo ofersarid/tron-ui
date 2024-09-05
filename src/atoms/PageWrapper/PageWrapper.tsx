@@ -6,13 +6,18 @@ export interface PageWrapperProps {
   readonly centerContent?: boolean;
 }
 
+/**
+ * PageWrapper is supposed to be the main container for the page. <br/>
+ * It should be used to wrap the main content of the page. <br/>
+ * It will provide padding and background color to the content. <br/>
+ */
 export function PageWrapper({
   children,
   centerContent = false,
 }: PageWrapperProps): JSX.Element {
   return (
     <StyledPageWrapper
-      streatch
+      flex={1}
       children={children}
       justify={centerContent ? 'center' : 'flex-start'}
       align={centerContent ? 'center' : 'flex-start'}
