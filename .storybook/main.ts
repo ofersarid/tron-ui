@@ -13,7 +13,6 @@ const config: StorybookConfig = {
     '@storybook/addon-essentials',
     '@chromatic-com/storybook',
     '@storybook/addon-interactions',
-    'storybook-dark-mode',
   ],
   webpackFinal: async (config) => {
     config.resolve!.alias = {

@@ -4,15 +4,6 @@ import { ThemeProvider, StyledEngineProvider } from '@mui/material/styles';
 import { addons } from '@storybook/preview-api';
 import { themeDark, themeLight } from '../src/theme';
 import { themes } from '@storybook/theming';
-import { useDarkMode } from 'storybook-dark-mode';
-import {
-  Title,
-  Subtitle,
-  Description,
-  Primary,
-  Controls,
-  Stories,
-} from '@storybook/blocks';
 import '../src/index.css';
 import './index.css';
 
@@ -26,39 +17,15 @@ const preview: Preview = {
         date: /Date$/i,
       },
     },
-    darkMode: {
-      stylePreview: true,
-      current: 'dark',
-      dark: { ...themes.dark },
-      light: { ...themes.light },
-    },
     docs: {
-      toc: true, // 👈 Enables the table of contents
+      toc: true,
       theme: themes.dark,
-      page: () => (
-        <>
-          <Title />
-          <Subtitle />
-          <Description />
-          <Primary />
-          <Controls />
-          <Stories />
-        </>
-      ),
     },
   },
   decorators: [
     // 👇 Defining the decorator in the preview file applies it to all stories
-    (Story, { parameters }) => {
-      // 👇 Make it configurable by reading from parameters
-      const { pageLayout } = parameters;
-      const isDarkMode = useDarkMode();
-
-      // useEffect(() => {
-      //   const theme = isDarkMode ? themeDark : themeLight;
-      //   document.body.style.backgroundColor = theme.palette.background.default;
-      //   // document.body.style.color = theme.palette.text.primary;
-      // }, [isDarkMode]);
+    (Story, { globals }) => {
+      const isDarkMode = globals.theme === 'dark';
 
       return (
         <StyledEngineProvider injectFirst>
@@ -72,3 +39,22 @@ const preview: Preview = {
 };
 
 export default preview;
+
+export const globalTypes = {
+  theme: {
+    name: 'Theme',
+    description: 'Global theme for components',
+    defaultValue: 'dark',
+    toolbar: {
+      // The icon for the toolbar item
+      icon: 'circlehollow',
+      // Array of options
+      items: [
+        { value: 'light', icon: 'circlehollow', title: 'light' },
+        { value: 'dark', icon: 'circle', title: 'dark' },
+      ],
+      // Property that specifies if the name of the item will be displayed
+      showName: true,
+    },
+  },
+};
